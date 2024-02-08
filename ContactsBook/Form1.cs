@@ -74,7 +74,11 @@ namespace ContactsBook
 
         private void PhoneBookDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            FirstNameTextBox.Text = contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex].ItemArray[0].ToString();
+            LastNameTextBox.Text = contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex].ItemArray[1].ToString();
+            EmailTextBox.Text = contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex].ItemArray[2].ToString();
+            PhoneNumberTextBox.Text = contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex].ItemArray[3].ToString();
+            editing = true;
         }
     }
 }
