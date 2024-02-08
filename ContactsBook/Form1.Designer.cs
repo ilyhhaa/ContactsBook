@@ -40,8 +40,8 @@
             DeleteButton = new Button();
             SaveButton = new Button();
             LoadButton = new Button();
-            ContactsDataGrid = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)ContactsDataGrid).BeginInit();
+            PhoneBookDataGrid = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)PhoneBookDataGrid).BeginInit();
             SuspendLayout();
             // 
             // NewButton
@@ -148,22 +148,22 @@
             LoadButton.UseVisualStyleBackColor = true;
             LoadButton.Click += LoadButton_Click;
             // 
-            // ContactsDataGrid
+            // PhoneBookDataGrid
             // 
-            ContactsDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ContactsDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ContactsDataGrid.Location = new Point(12, 184);
-            ContactsDataGrid.Name = "ContactsDataGrid";
-            ContactsDataGrid.RowTemplate.Height = 25;
-            ContactsDataGrid.Size = new Size(776, 254);
-            ContactsDataGrid.TabIndex = 12;
+            PhoneBookDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PhoneBookDataGrid.Location = new Point(22, 188);
+            PhoneBookDataGrid.Name = "PhoneBookDataGrid";
+            PhoneBookDataGrid.RowTemplate.Height = 25;
+            PhoneBookDataGrid.Size = new Size(766, 250);
+            PhoneBookDataGrid.TabIndex = 12;
+            PhoneBookDataGrid.CellDoubleClick += PhoneBookDataGrid_CellDoubleClick;
             // 
             // PhoneBook
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(ContactsDataGrid);
+            Controls.Add(PhoneBookDataGrid);
             Controls.Add(LoadButton);
             Controls.Add(SaveButton);
             Controls.Add(DeleteButton);
@@ -179,7 +179,7 @@
             Name = "PhoneBook";
             Text = "PhoneBook";
             Load += PhoneBook_Load;
-            ((System.ComponentModel.ISupportInitialize)ContactsDataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PhoneBookDataGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -198,6 +198,6 @@
         private Button DeleteButton;
         private Button SaveButton;
         private Button LoadButton;
-        private DataGridView ContactsDataGrid;
+        private DataGridView PhoneBookDataGrid;
     }
 }
