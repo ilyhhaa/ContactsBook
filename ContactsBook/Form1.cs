@@ -36,17 +36,40 @@ namespace ContactsBook
             LastNameTextBox.Text = contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex].ItemArray[1].ToString();
             EmailTextBox.Text = contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex].ItemArray[2].ToString();
             PhoneNumberTextBox.Text = contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex].ItemArray[3].ToString();
-
+            editing = true;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-
+            if (editing) 
+            {
+                contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex]["First Name"] = FirstNameTextBox.Text;
+                contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex]["Last Name"] = LastNameTextBox.Text;
+                contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex]["Email"] = EmailTextBox.Text;
+                contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex]["Phone Number"] = PhoneNumberTextBox.Text;
+            }
+            else
+            {
+                contacts.Rows.Add(FirstNameTextBox.Text,LastNameTextBox.Text,EmailTextBox.Text,PhoneNumberTextBox.Text);
+            }
+            FirstNameTextBox.Text = "";
+            LastNameTextBox.Text = "";
+            EmailTextBox.Text = "";
+            PhoneNumberTextBox.Text = "";
+            editing = false;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                contacts.Rows[PhoneBookDataGrid.CurrentCell.RowIndex].Delete();
+            }
+            catch (Exception exeption)
+            {
+                Console.WriteLine("Not Valid RoW");
+            }
+            
         }
 
         private void PhoneBookDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
